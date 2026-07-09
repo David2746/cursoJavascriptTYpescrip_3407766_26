@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let nombre = prompt("Nombre mascota");
+let tipo = prompt("Tipo").toLowerCase();
+let edad = parseInt(prompt("Edad"));
+
+let edadHumana;
+
+if(tipo === "perro"){
+    edadHumana = edad > 2
+        ? (2 * 10.5) + ((edad - 2) * 4)
+        : edad * 10.5;
+}
+else if(tipo === "gato"){
+    edadHumana = edad > 2
+        ? (2 * 12) + ((edad - 2) * 4)
+        : edad * 12;
+}
+else{
+    alert("Tipo de mascota no reconocido");
+}
+
+if(edadHumana){
+    document.write(`Nombre: ${nombre}<br>`);
+    document.write(`Tipo: ${tipo}<br>`);
+    document.write(`Edad mascota: ${edad}<br>`);
+    document.write(`Edad humana: ${edadHumana}`);
+}
+</script>
+
+</body>
+</html>

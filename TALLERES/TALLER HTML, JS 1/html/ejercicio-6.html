@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 6</title>
+</head>
+<body>
+
+<script>
+let compra = parseFloat(prompt("Valor de la compra"));
+let entregado = parseFloat(prompt("Valor entregado"));
+
+if (entregado < compra) {
+    alert("Dinero insuficiente, faltan $" + (compra - entregado));
+} else if (entregado === compra) {
+    alert("No hay cambio");
+} else {
+    let cambio = entregado - compra;
+
+    document.write("<h2>Resultado</h2>");
+    document.write("Compra: $" + compra.toLocaleString("es-CO") + "<br>");
+    document.write("Entregado: $" + entregado.toLocaleString("es-CO") + "<br>");
+    document.write("Cambio: $" + cambio.toLocaleString("es-CO"));
+}
+</script>
+
+</body>
+</html>
