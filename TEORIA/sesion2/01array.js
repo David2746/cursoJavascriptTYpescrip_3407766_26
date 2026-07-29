@@ -1,4 +1,5 @@
 let productos = ["laptop", "mouse", "Teclado", "Monitor"];
+//acceso por indice 0
 console.log(productos[0]);
 console.log(productos[2]);
 console.log(productos[productos. length +1]); //Monitor

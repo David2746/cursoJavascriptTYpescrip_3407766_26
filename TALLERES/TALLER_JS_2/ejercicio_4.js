@@ -1,12 +1,22 @@
-let inventario=[
-    {nombre: "audifonos", precio: 1200, stock: 7},
-    {nombre: "mouse", precio: 500, stock: 0},
-    {nombre: "teclado", precio: 800, stock: 1},
-    {nombre: "monitor", precio: 6000, stock: 5},
-    {nombre: "USB", precio: 300, stock: 0},
-    {nombre: "parlante", precio: 1500, stock: 2},
+let productos = [
+    { nombre: "Portátil", precio: 2500000, stock: 5 },
+    { nombre: "Mouse", precio: 80000, stock: 10 },
+    { nombre: "Teclado", precio: 150000, stock: 0 },
+    { nombre: "Monitor", precio: 900000, stock: 3 }
 ];
-let disponibles = inventario.filter(p=>p.stock>0);
 
-let etiquetas = disponibles.map(p =>`${p.nombre} - $${p.precio.toLocaleString("es-co")}`);
-console.log(etiquetas)
+let disponibles = productos.filter(function(producto){
+    return producto.stock > 0;
+});
+
+let nombres = disponibles.map(function(producto){
+    return producto.nombre;
+});
+
+let total = disponibles.reduce(function(acum, producto){
+    return acum + producto.precio * producto.stock;
+},0);
+
+console.log(disponibles);
+console.log(nombres);
+console.log("Total inventario: $" + total);
