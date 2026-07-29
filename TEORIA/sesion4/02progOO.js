@@ -40,7 +40,7 @@ class ProductoDigital extends producto {
     }
 }//fin de la clase productoDigital
 
-class ProductoFisico extends Producto{
+class ProductoFisico extends producto{
     constructor(id, nombre, precio, stock, pesoKg){
         super(id, nombre, precio, stock);
         this.pesoKg= pesoKg;
@@ -49,10 +49,18 @@ class ProductoFisico extends Producto{
 calcularEnvio(distanciaKm){
     let base=8000;
     let porKm=50;
-    let recargo=this.pesoKg>5?//ternaria siempre que peso sea mayor a 5 multiplicar peso * 500 else 0
-
-    
+    let recargo=this.pesoKg>5?this.pesoKg*500:0
+    return base+distanciaKm*porKm+recargo;
+    }
+//2 metodo
+descripcion(){
+    return `${super.descripcion()} | ${this.pesoKg}`;
 }
-let software = new ProductoDigital(100, "suit de office 365", 350000, "http://software.com")
+}
+
+let software = new ProductoDigital(100, "suit de office 365", 350000, "http://office.com")
 console.log(software.descripcion());
 console.log(software.generarEnlace());
+let laptop= new ProductoFisico("Pr001", "Laptop Maquintonch", 7500000, 10, 4.5);
+console.log(`Envio Laptop 50Km: $${laptop.calcularEnvio(50)}`);
+console.log(laptop.descripcion());
